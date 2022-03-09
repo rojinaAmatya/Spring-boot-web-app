@@ -1,9 +1,6 @@
 package com.springframework.springWebApp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -13,6 +10,8 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
+
+    @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
     public Author() {
@@ -55,4 +54,6 @@ public class Author {
     public void setBooks(Set<Book> books) {
         this.books = books;
     }
+
+   
 }
